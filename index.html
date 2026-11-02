@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090914">
+  <title>新年快乐 · 2027</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <!-- 初始页面：生日网页式“打开礼物”入口 -->
+    <section id="welcomePage" class="welcome-page">
+      <div class="welcome-stars" aria-hidden="true">✦　·　✧　　 ✦　　·　✧</div>
+      <p class="overline">A LITTLE GIFT FOR YOU</p>
+      <div class="countdown-container">
+    <p class="countdown-title">距离2027年还有</p>
+    <div id="countdown" class="countdown">
+        <div class="countdown-item">
+            <span id="days">000</span>
+            <small>天</small>
+        </div>
+        <div class="countdown-item">
+            <span id="hours">00</span>
+            <small>时</small>
+        </div>
+        <div class="countdown-item">
+            <span id="minutes">00</span>
+            <small>分</small>
+        </div>
+        <div class="countdown-item">
+            <span id="seconds">00</span>
+            <small>秒</small>
+        </div>
+    </div>
+</div>
+      <div class="year-mark">202<span>7</span></div>
+      <h1>新年快乐</h1>
+      <p class="welcome-copy">把这一份特别的新年祝福，送给特别的你。</p>
+      <button id="openGiftBtn" class="gift-button" type="button">
+        <span class="gift-icon">🎁</span><span>打开新年礼物</span><span class="button-arrow">↗</span>
+      </button>
+      <p class="tap-hint">点击礼物，开启 2027 的惊喜</p>
+    </section>
+
+    <!-- 开礼物后的祝福首页 -->
+    <section id="introPage" class="intro-page hidden">
+      <div class="confetti" aria-hidden="true">✦　✧　✦　✧　✦</div>
+      <div class="balloons" aria-hidden="true"><i>🎈</i><i>🎈</i><i>🎈</i><i>✨</i></div>
+      <p class="overline">A NEW CHAPTER BEGINS</p>
+      <h2>HAPPY NEW<br><em>YEAR</em> <strong>2027</strong></h2>
+      <p class="intro-copy">愿新的一年，平安喜乐，万事胜意。</p>
+      <button id="startFilmBtn" class="primary-button" type="button">播放新年祝福视频 <span>▶</span></button>
+      <button id="backToGiftBtn" class="text-button" type="button">返回</button>
+    </section>
+
+    <!-- 四个镜头：单一播放器依次播放，避免重复视频控件 -->
+    <section id="filmPage" class="film-page hidden">
+      <div class="film-topbar">
+        <span class="film-brand">HAPPY NEW YEAR <b>2027</b></span>
+        <span id="sceneCounter">SCENE 01 / 04</span>
+      </div>
+      <div class="video-stage">
+        <video id="sceneVideo" playsinline preload="metadata" poster="assets/images/scene-01.jpg">
+          <source src="assets/videos/scene-01-opening.mp3" type="video/mp3">
+          您的浏览器不支持视频播放。
+        </video>
+        <div class="video-vignette"></div>
+        <div class="scene-caption">
+          <p id="sceneEyebrow">SCENE 01 · THE BEGINNING</p>
+          <h2 id="sceneTitle">新的篇章，即将开启</h2>
+          <p id="sceneDescription">让希望，在这一刻悄然点亮。</p>
+        </div>
+        <div class="film-controls">
+          <div class="progress-track"><span id="progressBar"></span></div>
+          <div class="control-row">
+            <button id="pauseBtn" class="round-control" type="button" aria-label="暂停">Ⅱ</button>
+            <button id="muteBtn" class="round-control" type="button" aria-label="静音">♫</button>
+            <span class="control-spacer"></span>
+            <button id="skipBtn" class="next-control" type="button">下一个镜头　→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最终祝福：类似生日页的祝福弹层 -->
+    <section id="endingPage" class="ending-page hidden">
+      <div class="ending-glow"></div>
+      <p class="overline">WITH LOVE & BEST WISHES</p>
+      <div class="ending-year">2027</div>
+      <h2>新年快乐！</h2>
+      <p class="ending-message">愿你所遇皆温柔，所行皆坦途。<br>愿新的一年，有盼、有趣、有值得奔赴的远方。</p>
+      <div class="ending-actions">
+        <button id="replayBtn" class="primary-button" type="button">重新观看 ✦</button>
+        <button id="blessingBtn" class="secondary-button" type="button">打开专属祝福</button>
+      </div>
+    </section>
+
+    <div id="blessingModal" class="blessing-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="blessing-card">
+        <button id="closeModalBtn" class="modal-close" type="button" aria-label="关闭">×</button>
+        <p class="overline">A WISH FOR YOU</p>
+        <h2 id="modalTitle">写给 2027 的你</h2>
+        <p>愿你在新的一年里，心中有光，脚下有路。<br>愿每一次努力都有回响，每一个愿望都慢慢实现。</p>
+        <div class="modal-sign">HAPPY NEW YEAR <b>2027</b></div>
+      </div>
+    </div>
+
+    <audio id="bgMusic" src="assets/music/new-year.mp3" loop preload="none"></audio>
+    <button id="musicControl" class="music-control hidden" type="button" aria-label="背景音乐">♫ <span>音乐</span></button>
+  </main>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

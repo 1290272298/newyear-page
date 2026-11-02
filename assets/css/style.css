@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+:root{--gold:#e4c27c;--cream:#f8f0df;--muted:#c9bda8;--night:#080812}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--night);color:var(--cream);font-family:'Noto Sans SC',sans-serif}body{overflow-x:hidden}.hidden{display:none!important}
+.ambient{position:fixed;width:42vw;height:42vw;border-radius:50%;filter:blur(100px);opacity:.15;pointer-events:none}.ambient-one{background:#8b4e9d;top:-20vw;left:-15vw}.ambient-two{background:#b78a3c;right:-20vw;bottom:-20vw}
+.app-shell{position:relative;min-height:100vh;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#191426 0%,#090912 62%,#05050b 100%)}
+.welcome-page,.intro-page,.ending-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px;position:relative;isolation:isolate}
+.welcome-stars{position:absolute;top:13%;color:#d8bd82;letter-spacing:14px;opacity:.65;font-size:20px;animation:twinkle 3s ease-in-out infinite alternate}
+.overline{font-size:10px;letter-spacing:5px;color:var(--gold);margin:0 0 24px}
+.year-mark,.ending-year{font:500 clamp(92px,20vw,190px)/.8 'Cormorant Garamond',serif;letter-spacing:5px;color:#f4dfad;text-shadow:0 0 55px #d8ad5c55}
+.year-mark span{color:#fff3d3}
+.welcome-page h1{font-size:clamp(27px,5vw,42px);font-weight:300;letter-spacing:12px;margin:26px 0 12px}
+.welcome-copy,.intro-copy{font-size:13px;letter-spacing:2px;color:var(--muted);line-height:2}
+.gift-button{margin-top:42px;display:flex;align-items:center;gap:17px;padding:16px 27px;border:1px solid #d9b96f88;background:linear-gradient(120deg,#9e7438,#f0d99e,#9e7438);color:#1a140a;font-size:14px;letter-spacing:2px;box-shadow:0 12px 55px #d7b05b35;transition:.3s}
+.gift-button:hover,.primary-button:hover,.secondary-button:hover{transform:translateY(-3px);box-shadow:0 15px 45px #d7b05b55}.gift-icon{font-size:22px}.button-arrow{font-size:20px}.tap-hint{font-size:10px;color:#887d6b;letter-spacing:2px;margin-top:18px}
+.intro-page{background:radial-gradient(ellipse at 50% 48%,#29203b 0%,#0b0a14 60%,#07070d 100%)}
+.balloons{position:absolute;inset:0;pointer-events:none;overflow:hidden}.balloons i{position:absolute;font-style:normal;font-size:clamp(30px,5vw,56px);animation:float 7s ease-in-out infinite}.balloons i:nth-child(1){left:12%;bottom:12%}.balloons i:nth-child(2){right:14%;bottom:20%;animation-delay:1s}.balloons i:nth-child(3){left:24%;top:18%;animation-delay:2s}.balloons i:nth-child(4){right:25%;top:17%;color:var(--gold);animation-delay:.5s}
+.confetti{position:absolute;top:10%;color:#e6c982;letter-spacing:24px;opacity:.7;animation:twinkle 2s infinite alternate}
+.intro-page h2{font:500 clamp(55px,12vw,125px)/.82 'Cormorant Garamond',serif;letter-spacing:3px;margin:15px 0 25px}.intro-page h2 em{font-style:normal;color:var(--gold)}.intro-page h2 strong{font-size:.55em;letter-spacing:10px;color:#fff0c9}
+.primary-button,.secondary-button{border:1px solid #d9b96f;background:linear-gradient(110deg,#b58a45,#f0d69b,#b58a45);color:#17120a;padding:14px 24px;letter-spacing:2px;font-size:12px;transition:.25s}.primary-button span{margin-left:16px}.text-button{margin-top:18px;background:none;border:0;color:#a79b86;font-size:11px;letter-spacing:2px}
+.film-page{min-height:100vh;padding:22px 4vw 28px;display:flex;flex-direction:column;justify-content:center}.film-topbar{display:flex;justify-content:space-between;align-items:center;padding:0 1vw 16px;color:#b7a47f;font:11px 'Cormorant Garamond',serif;letter-spacing:3px}.film-brand b{color:var(--gold);font-weight:500}.video-stage{position:relative;width:100%;height:min(76vh,820px);min-height:360px;background:#030307;overflow:hidden;border:1px solid #b69a6244;box-shadow:0 25px 90px #0009}.video-stage video{width:100%;height:100%;object-fit:cover;display:block}.video-vignette{position:absolute;inset:0;background:linear-gradient(0deg,#05050bdc 0%,transparent 48%,#05050b44 100%);pointer-events:none}.scene-caption{position:absolute;left:7%;bottom:16%;max-width:700px;text-shadow:0 2px 25px #000}.scene-caption p:first-child{font:11px 'Cormorant Garamond',serif;letter-spacing:4px;color:var(--gold)}.scene-caption h2{font-size:clamp(26px,5vw,55px);font-weight:300;letter-spacing:4px;margin:12px 0}.scene-caption p:last-child{font-size:13px;letter-spacing:2px;color:#e0d5c2}.film-controls{position:absolute;bottom:0;left:0;right:0;padding:20px 5%;background:linear-gradient(0deg,#05050bee,#05050b00)}.progress-track{height:2px;background:#ffffff55}.progress-track span{display:block;width:0;height:100%;background:var(--gold);transition:width .15s linear}.control-row{display:flex;align-items:center;gap:12px;padding-top:14px}.round-control{width:34px;height:34px;border-radius:50%;border:1px solid #d8c18b88;background:#17131dbb;color:#f7e5bc}.control-spacer{flex:1}.next-control{background:none;border:0;color:#f3dfb4;letter-spacing:2px;font-size:11px}
+.ending-page{background:radial-gradient(ellipse at 50% 45%,#352746 0%,#11101c 48%,#06060d 100%)}.ending-glow{position:absolute;width:65vw;height:65vw;border-radius:50%;background:#d1a44a;filter:blur(130px);opacity:.08;z-index:-1}.ending-year{font-size:clamp(100px,24vw,230px);margin:10px 0 20px}.ending-page h2{font-size:clamp(32px,6vw,58px);font-weight:300;letter-spacing:12px;margin:0 0 20px}.ending-message{font-size:14px;line-height:2.4;letter-spacing:2px;color:#d4c8b4}.ending-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px}.secondary-button{background:transparent;color:#e9d5a7}
+.blessing-modal{position:fixed;inset:0;z-index:20;background:#03030bdc;display:flex;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(10px)}.blessing-card{position:relative;max-width:520px;width:100%;padding:55px 35px;text-align:center;border:1px solid #d4b36d88;background:linear-gradient(145deg,#211b2d,#0d0c16);box-shadow:0 25px 100px #000}.blessing-card h2{font-size:28px;font-weight:300;letter-spacing:5px}.blessing-card p:not(.overline){font-size:13px;line-height:2.4;color:#d0c3ad}.modal-close{position:absolute;right:16px;top:12px;border:0;background:none;color:#e9d5a7;font-size:28px}.modal-sign{margin-top:28px;font:12px 'Cormorant Garamond',serif;letter-spacing:3px;color:#c5aa72}.modal-sign b{color:#f0d79e}
+.music-control{position:fixed;z-index:15;right:20px;bottom:20px;border:1px solid #d8bd82aa;background:#15121dcc;color:#f2dfb4;border-radius:30px;padding:10px 16px;letter-spacing:2px;font-size:12px;backdrop-filter:blur(8px)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-28px) rotate(5deg)}}@keyframes twinkle{from{opacity:.3;transform:translateY(0)}to{opacity:.9;transform:translateY(-8px)}}
+@media(max-width:650px){.welcome-page h1{letter-spacing:7px}.welcome-copy{font-size:11px}.film-page{padding:12px 10px 18px}.video-stage{height:72vh;min-height:420px}.video-stage video{object-fit:cover}.scene-caption{left:7%;right:7%;bottom:17%}.scene-caption h2{letter-spacing:2px}.scene-caption p:last-child{font-size:11px;line-height:1.8}.film-topbar{font-size:9px}.ending-message{font-size:12px}.blessing-card{padding:48px 22px}}
+/* 新年倒计时 */
+.countdown-container {
+    margin: 25px auto;
+    text-align: center;
+    color: #fff;
+}
+
+.countdown-title {
+    font-size: 16px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    color: #ffe8ad;
+    text-shadow: 0 0 10px rgba(255, 215, 120, 0.8);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.countdown-item {
+    min-width: 65px;
+    padding: 12px 8px;
+    border: 1px solid rgba(255, 215, 120, 0.65);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 15px rgba(255, 190, 70, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-item span {
+    font-size: 30px;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    color: #ffd978;
+    text-shadow: 0 0 12px rgba(255, 210, 100, 0.7);
+}
+
+.countdown-item small {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.countdown-finished {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffd978;
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        gap: 6px;
+    }
+
+    .countdown-item {
+        min-width: 55px;
+        padding: 10px 5px;
+    }
+
+    .countdown-item span {
+        font-size: 23px;
+    }
+
+    .countdown-title {
+        font-size: 14px;
+    }
+}
