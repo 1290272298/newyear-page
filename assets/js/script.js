@@ -71,7 +71,7 @@ function playScene(index) {
   // 第1个视频：开启背景音乐
   // 第2～第4个视频：关闭背景音乐
   // 只有第2、3、4个视频播放期间暂停背景音乐
-if (index === 1 || index === 2 || index === 3) {
+if (index === 0 || index === 1 || index === 2 || index === 3) {
     music.pause();
     $("musicControl").classList.add("hidden");
 } else {
