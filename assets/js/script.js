@@ -69,19 +69,17 @@ function playScene(index) {
     $("musicControl").classList.remove("hidden");
     return;
   }
-  // 根据当前视频自动控制背景音乐
-  // 第1个视频：开启背景音乐
-  // 第2～第4个视频：关闭背景音乐
-  // 只有第2、3、4个视频播放期间暂停背景音乐
-if (index === 0 || index === 1 || index === 2 || index === 3) {
-    music.pause();
-    $("musicControl").classList.add("hidden");
-} else {
+  // 第1段保留背景音乐；第2～4段暂停背景音乐
+  if (index === 0) {
     music.play().catch(() => {});
     $("musicControl").classList.remove("hidden");
-}
+  } else {
+    music.pause();
+    $("musicControl").classList.add("hidden");
+  }
   const scene = scenes[index];
   $("sceneCounter").textContent = `SCENE ${String(index + 1).padStart(2, "0")} / 04`;
+  $("skipBtn").textContent = index === scenes.length - 1 ? "查看最终祝福　→" : "下一个镜头　→";
   $("sceneEyebrow").textContent = scene.eyebrow;
   $("sceneTitle").textContent = scene.title;
   $("sceneDescription").textContent = scene.description;
@@ -97,7 +95,10 @@ if (index === 0 || index === 1 || index === 2 || index === 3) {
 }
 $("startFilmBtn").addEventListener("click", () => playScene(0));
 $("skipBtn").addEventListener("click", () => playScene(currentScene + 1));
-video.addEventListener("ended", () => playScene(currentScene + 1));
+video.addEventListener("ended", () => {
+  // 当前镜头结束后停留，等待用户手动点击“下一个镜头”
+  $("pauseBtn").textContent = "▶";
+});
 video.addEventListener("timeupdate", () => {
   if (video.duration && Number.isFinite(video.duration)) {
     $("progressBar").style.width = `${(video.currentTime / video.duration) * 100}%`;
@@ -204,9 +205,7 @@ $("closeModalBtn").addEventListener("click", () => $("blessingModal").classList.
 $("blessingModal").addEventListener("click", (event) => {
   if (event.target === $("blessingModal")) $("blessingModal").classList.add("hidden");
 });
-// 打开祝福弹窗时，恢复背景音乐
-$("musicControl").classList.remove("hidden");
-music.play().catch(() => {});
+// 背景音乐只在用户点击打开礼物后启动；祝福弹窗不改变音乐状态
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") $("blessingModal").classList.add("hidden");
 });
