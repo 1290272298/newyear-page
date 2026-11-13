@@ -130,6 +130,40 @@ body.video-expanded {
   overflow: hidden;
 }
 
+/* 备用全屏时解除外层容器裁切 */
+body.video-expanded .app-shell {
+  overflow: visible;
+}
+
+body.video-expanded .film-page {
+  overflow: visible;
+}
+
+.video-stage.is-expanded {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  z-index: 9999 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: #000 !important;
+}
+
+.video-stage.is-expanded video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.video-stage.is-expanded .film-controls {
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
 .fullscreen-control {
   font-size: 21px;
   line-height: 1;
