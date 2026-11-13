@@ -88,3 +88,43 @@ Mixkit 某些视频虽然可以免费预览/下载，但素材页面会明确写
 - [Vlipsy Terms of Service](https://vlipsy.com/terms)
 
 本清单是素材筛选记录，不构成法律意见。每次下载及发布前，应以该素材当时的具体页面和完整授权条款为准。
+
+
+---
+
+## 7. 2026-11-13 补充检索：新年视频候选（不替换现有视频）
+
+本轮以现有网页的黑金电影感为筛选标准。以下均为**候选素材**，不接入播放器，不改变现有四段视频。
+
+### 优先候选：Mixkit（逐条页面已核对）
+
+| 用途建议 | 素材 | 页面规格 | 授权状态 | 来源 |
+|---|---|---|---|---|
+| 开场/黑金氛围 | Fireworks at night sky | 24 秒；1920×1080；24 fps；约 8.08 MB | 页面明确标注 Mixkit Stock Video Free License，可用于商业或个人项目 | [素材页](https://mixkit.co/free-stock-video/fireworks-at-night-sky-4064/) |
+| 温暖祝福/人物场景 | Friends light up celebratory sparklers | 30 秒；1920×1080；24 fps；约 10.75 MB | 页面明确标注 Mixkit Stock Video Free License | [素材页](https://mixkit.co/free-stock-video/a-group-of-friends-donned-with-elegant-dresses-and-suits-51541/) |
+| 结尾高潮/烟花 | Fireworks rising from the bottom | 33 秒；1920×1080；25 fps；约 11.59 MB | 页面明确标注 Mixkit Stock Video Free License | [素材页](https://mixkit.co/free-stock-video/fireworks-rising-from-the-bottom-4152/) |
+| 香槟细节/转场 | Close up shot of bubbly and effervescent champagne glasses | 候选；下载前再核对规格 | 搜索列表可见，需进入素材页确认具体许可 | [素材页](https://mixkit.co/free-stock-video/close-up-shot-of-bubbly-and-effervescent-champagne-glasses-51553/) |
+
+**排除项：** [New year countdown 18045](https://mixkit.co/free-stock-video/new-year-countdown-18045/) 页面明确写明免费版本仅限 Personal Use / Mixkit Restricted License，不作为本项目公开网页的优先素材。
+
+Mixkit 的 Free License 允许在个人和商业项目中使用，并允许下载、修改、分发及公开播放；但每一条素材必须以其具体素材页显示的许可为准，不能把“免费”一概视为可商用。
+
+### 其他可选素材库
+
+- [Pexels 新年烟花/彩纸视频搜索](https://www.pexels.com/search/videos/new%20year%20confetti/)：可用于寻找 16:9 烟花、彩纸和庆祝镜头。Pexels License 允许网站、博客和 App 使用，但禁止把素材作为未修改的独立素材重新销售或上传到其他素材平台。具体视频仍需核对人物肖像、商标等额外权利。
+- [Pexels：Office Team Toasting](https://www.pexels.com/video/office-team-toasting-6396220/)：13 秒，2560×1080，页面标注 Free；适合“温暖祝福/庆祝”备选，画面人物较明显，公开发布前建议确认使用场景。
+- [Pixabay：Happy New Year Fireworks](https://pixabay.com/videos/happy-new-year-fireworks-happy-316007/)：2160×3840 竖屏 MP4/MOV，页面标注 Pixabay Content License；可作为手机竖屏备选，不建议直接替换目前横屏四段视频。
+- [Amara Software：Fireworks & New Year animations](https://amarasoftware.com/animations/fireworks/)：页面列出 MP4/GIF 动画，声明个人和商业用途免费；其中包含 Countdown to 2027、Happy New Year、Golden fireworks 等。多数为方形/小尺寸，更适合作为独立装饰或候选，不建议直接用作主视频。
+
+### Unsplash 与 Vlipsy 的使用边界
+
+- [Unsplash New Year 图片搜索](https://unsplash.com/ja/s/%E5%86%99%E7%9C%9F/newyear)继续用于挑选封面、首屏背景和静态照片。Unsplash License 允许免费个人/商业使用，但人物肖像、商标、艺术作品等仍可能涉及额外权利。
+- [Vlipsy New Year 视频搜索](https://vlipsy.com/search/new-year)仅作为创意灵感来源，不下载、不上传到本项目。Vlipsy 条款说明其片段可能来自 X、TikTok、YouTube 等第三方内容，且使用者需自行确保符合版权例外；条款也禁止下载/再分发其素材库或实质部分。
+
+### 本轮入库规则
+
+1. 现有 `scene-01-opening.mp4` 至 `scene-04-finale.mp4` 保持原样，不覆盖、不改名、不修改 JS 引用。
+2. 新素材只放在独立候选目录，命名使用 `candidate-01-...`，不使用现有 `scene-0X-...` 文件名。
+3. 每个候选视频必须同时保存来源 URL、作者、下载日期、具体许可名称和页面截图/下载凭证。
+4. GitHub Pages 仓库是公开可访问的；若素材许可不允许以独立文件形式再分发，不要把原始 MP4 当作公开下载素材提交。应先确认其作为网页项目组成部分使用是否符合许可。
+5. 当前本轮完成的是候选筛选与来源记录；未对现有播放器或视频引用做任何改动。
