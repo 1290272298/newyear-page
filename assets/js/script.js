@@ -35,6 +35,8 @@ let currentScene = 0;
 let isMuted = true;
 const video = $("sceneVideo");
 const music = $("bgMusic");
+const videoStage = document.querySelector(".video-stage");
+const fullscreenBtn = $("fullscreenBtn");
 
 function showPage(id) {
   ["welcomePage", "introPage", "filmPage", "endingPage"].forEach(page => $(page).classList.add("hidden"));
@@ -114,6 +116,58 @@ $("muteBtn").addEventListener("click", () => {
   video.muted = isMuted;
   $("muteBtn").textContent = isMuted ? "♫" : "♪";
 });
+
+// 视频放大：优先使用浏览器原生全屏，iPhone Safari 使用原生视频全屏
+async function enterVideoFullscreen() {
+  try {
+    if (typeof video.webkitEnterFullscreen === "function" &&
+        /iPhone|iPod/i.test(navigator.userAgent)) {
+      video.webkitEnterFullscreen();
+      return;
+    }
+
+    if (document.fullscreenElement === videoStage) {
+      await document.exitFullscreen();
+      return;
+    }
+
+    if (videoStage.classList.contains("is-expanded")) {
+      videoStage.classList.remove("is-expanded");
+      document.body.classList.remove("video-expanded");
+      return;
+    }
+
+    if (videoStage.requestFullscreen) {
+      await videoStage.requestFullscreen();
+    } else if (video.requestFullscreen) {
+      await video.requestFullscreen();
+    } else {
+      // 不支持原生全屏时，使用页面内的全屏样式作为兼容方案
+      videoStage.classList.add("is-expanded");
+      document.body.classList.add("video-expanded");
+    }
+  } catch (error) {
+    // 原生全屏被浏览器拒绝时，退回页面内放大模式
+    videoStage.classList.add("is-expanded");
+    document.body.classList.add("video-expanded");
+  }
+}
+
+fullscreenBtn.addEventListener("click", enterVideoFullscreen);
+
+function syncFullscreenButton() {
+  const expanded = document.fullscreenElement === videoStage ||
+    document.fullscreenElement === video ||
+    videoStage.classList.contains("is-expanded");
+  fullscreenBtn.textContent = expanded ? "⛶" : "⛶";
+  fullscreenBtn.setAttribute("aria-label", expanded ? "退出全屏" : "全屏显示");
+  fullscreenBtn.title = expanded ? "退出全屏" : "全屏显示";
+}
+
+document.addEventListener("fullscreenchange", syncFullscreenButton);
+video.addEventListener("webkitbeginfullscreen", syncFullscreenButton);
+video.addEventListener("webkitendfullscreen", syncFullscreenButton);
+
 
 $("musicControl").addEventListener("click", () => {
   if (music.paused) {
