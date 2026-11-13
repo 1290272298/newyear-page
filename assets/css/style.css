@@ -186,3 +186,25 @@ body.video-expanded .film-page {
     padding-bottom: max(20px, env(safe-area-inset-bottom));
   }
 }
+
+
+/* 手机竖屏时，将放大的播放器旋转为横向显示 */
+@media (max-width: 650px) and (orientation: portrait) {
+  .video-stage.is-expanded {
+    width: 100dvh !important;
+    height: 100vw !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+    transform-origin: center center !important;
+  }
+
+  .video-stage.is-expanded video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
