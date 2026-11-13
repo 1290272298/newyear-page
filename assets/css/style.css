@@ -17,7 +17,7 @@
 .confetti{position:absolute;top:10%;color:#e6c982;letter-spacing:24px;opacity:.7;animation:twinkle 2s infinite alternate}
 .intro-page h2{font:500 clamp(55px,12vw,125px)/.82 'Cormorant Garamond',serif;letter-spacing:3px;margin:15px 0 25px}.intro-page h2 em{font-style:normal;color:var(--gold)}.intro-page h2 strong{font-size:.55em;letter-spacing:10px;color:#fff0c9}
 .primary-button,.secondary-button{border:1px solid #d9b96f;background:linear-gradient(110deg,#b58a45,#f0d69b,#b58a45);color:#17120a;padding:14px 24px;letter-spacing:2px;font-size:12px;transition:.25s}.primary-button span{margin-left:16px}.text-button{margin-top:18px;background:none;border:0;color:#a79b86;font-size:11px;letter-spacing:2px}
-.film-page{min-height:100vh;padding:22px 4vw 28px;display:flex;flex-direction:column;justify-content:center}.film-topbar{display:flex;justify-content:space-between;align-items:center;padding:0 1vw 16px;color:#b7a47f;font:11px 'Cormorant Garamond',serif;letter-spacing:3px}.film-brand b{color:var(--gold);font-weight:500}.video-stage{position:relative;width:100%;height:min(76vh,820px);min-height:360px;background:#030307;overflow:hidden;border:1px solid #b69a6244;box-shadow:0 25px 90px #0009}.video-stage video{width:100%;height:100%;object-fit:cover;display:block}.video-vignette{position:absolute;inset:0;background:linear-gradient(0deg,#05050bdc 0%,transparent 48%,#05050b44 100%);pointer-events:none}.scene-caption{position:absolute;left:7%;bottom:16%;max-width:700px;text-shadow:0 2px 25px #000}.scene-caption p:first-child{font:11px 'Cormorant Garamond',serif;letter-spacing:4px;color:var(--gold)}.scene-caption h2{font-size:clamp(26px,5vw,55px);font-weight:300;letter-spacing:4px;margin:12px 0}.scene-caption p:last-child{font-size:13px;letter-spacing:2px;color:#e0d5c2}.film-controls{position:absolute;bottom:0;left:0;right:0;padding:20px 5%;background:linear-gradient(0deg,#05050bee,#05050b00)}.progress-track{height:2px;background:#ffffff55}.progress-track span{display:block;width:0;height:100%;background:var(--gold);transition:width .15s linear}.control-row{display:flex;align-items:center;gap:12px;padding-top:14px}.round-control{width:34px;height:34px;border-radius:50%;border:1px solid #d8c18b88;background:#17131dbb;color:#f7e5bc}.control-spacer{flex:1}.next-control{background:none;border:0;color:#f3dfb4;letter-spacing:2px;font-size:11px}
+.film-page{min-height:100vh;padding:22px 4vw 28px;display:flex;flex-direction:column;justify-content:center}.film-topbar{display:flex;justify-content:space-between;align-items:center;padding:0 1vw 16px;color:#b7a47f;font:11px 'Cormorant Garamond',serif;letter-spacing:3px}.film-brand b{color:var(--gold);font-weight:500}.video-stage{position:relative;width:100%;height:min(76vh,820px);min-height:360px;background:#030307;overflow:hidden;border:1px solid #b69a6244;box-shadow:0 25px 90px #0009}.video-stage video{width:100%;height:100%;object-fit:contain;display:block;background:#000}.video-vignette{position:absolute;inset:0;background:linear-gradient(0deg,#05050bdc 0%,transparent 48%,#05050b44 100%);pointer-events:none}.scene-caption{position:absolute;left:7%;bottom:16%;max-width:700px;text-shadow:0 2px 25px #000}.scene-caption p:first-child{font:11px 'Cormorant Garamond',serif;letter-spacing:4px;color:var(--gold)}.scene-caption h2{font-size:clamp(26px,5vw,55px);font-weight:300;letter-spacing:4px;margin:12px 0}.scene-caption p:last-child{font-size:13px;letter-spacing:2px;color:#e0d5c2}.film-controls{position:absolute;bottom:0;left:0;right:0;padding:20px 5%;background:linear-gradient(0deg,#05050bee,#05050b00)}.progress-track{height:2px;background:#ffffff55}.progress-track span{display:block;width:0;height:100%;background:var(--gold);transition:width .15s linear}.control-row{display:flex;align-items:center;gap:12px;padding-top:14px}.round-control{width:34px;height:34px;border-radius:50%;border:1px solid #d8c18b88;background:#17131dbb;color:#f7e5bc}.control-spacer{flex:1}.next-control{background:none;border:0;color:#f3dfb4;letter-spacing:2px;font-size:11px}
 .ending-page{background:radial-gradient(ellipse at 50% 45%,#352746 0%,#11101c 48%,#06060d 100%)}.ending-glow{position:absolute;width:65vw;height:65vw;border-radius:50%;background:#d1a44a;filter:blur(130px);opacity:.08;z-index:-1}.ending-year{font-size:clamp(100px,24vw,230px);margin:10px 0 20px}.ending-page h2{font-size:clamp(32px,6vw,58px);font-weight:300;letter-spacing:12px;margin:0 0 20px}.ending-message{font-size:14px;line-height:2.4;letter-spacing:2px;color:#d4c8b4}.ending-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px}.secondary-button{background:transparent;color:#e9d5a7}
 .blessing-modal{position:fixed;inset:0;z-index:20;background:#03030bdc;display:flex;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(10px)}.blessing-card{position:relative;max-width:520px;width:100%;padding:55px 35px;text-align:center;border:1px solid #d4b36d88;background:linear-gradient(145deg,#211b2d,#0d0c16);box-shadow:0 25px 100px #000}.blessing-card h2{font-size:28px;font-weight:300;letter-spacing:5px}.blessing-card p:not(.overline){font-size:13px;line-height:2.4;color:#d0c3ad}.modal-close{position:absolute;right:16px;top:12px;border:0;background:none;color:#e9d5a7;font-size:28px}.modal-sign{margin-top:28px;font:12px 'Cormorant Garamond',serif;letter-spacing:3px;color:#c5aa72}.modal-sign b{color:#f0d79e}
 .music-control{position:fixed;z-index:15;right:20px;bottom:20px;border:1px solid #d8bd82aa;background:#15121dcc;color:#f2dfb4;border-radius:30px;padding:10px 16px;letter-spacing:2px;font-size:12px;backdrop-filter:blur(8px)}
@@ -94,4 +94,61 @@
     .countdown-title {
         font-size: 14px;
     }
+}
+
+/* 视频完整显示与全屏放大 */
+.video-stage {
+  background: #000;
+}
+
+.video-stage:fullscreen,
+.video-stage:-webkit-full-screen,
+.video-stage.is-expanded {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  max-height: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  border: 0;
+  box-shadow: none;
+  background: #000;
+}
+
+.video-stage:fullscreen video,
+.video-stage:-webkit-full-screen video,
+.video-stage.is-expanded video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+body.video-expanded {
+  overflow: hidden;
+}
+
+.fullscreen-control {
+  font-size: 21px;
+  line-height: 1;
+}
+
+@media (max-width: 650px) {
+  .video-stage video {
+    object-fit: contain;
+  }
+
+  .video-stage:fullscreen .scene-caption,
+  .video-stage:-webkit-full-screen .scene-caption,
+  .video-stage.is-expanded .scene-caption {
+    bottom: 17%;
+  }
+
+  .video-stage:fullscreen .film-controls,
+  .video-stage:-webkit-full-screen .film-controls,
+  .video-stage.is-expanded .film-controls {
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
 }
