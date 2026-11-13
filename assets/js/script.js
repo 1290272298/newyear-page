@@ -117,57 +117,71 @@ $("muteBtn").addEventListener("click", () => {
   $("muteBtn").textContent = isMuted ? "♫" : "♪";
 });
 
-// 视频放大：优先使用浏览器原生全屏，iPhone Safari 使用原生视频全屏
+// 视频放大：优先使用原生全屏；不支持时使用页面内全屏备用模式
+function setFallbackFullscreen(enabled) {
+  videoStage.classList.toggle("is-expanded", enabled);
+  document.body.classList.toggle("video-expanded", enabled);
+  fullscreenBtn.setAttribute("aria-label", enabled ? "退出全屏" : "全屏显示");
+  fullscreenBtn.title = enabled ? "退出全屏" : "全屏显示";
+}
+
 async function enterVideoFullscreen() {
-  try {
-    if (typeof video.webkitEnterFullscreen === "function" &&
-        /iPhone|iPod/i.test(navigator.userAgent)) {
+  if (videoStage.classList.contains("is-expanded")) {
+    setFallbackFullscreen(false);
+    return;
+  }
+
+  if (document.fullscreenElement) {
+    try {
+      await document.exitFullscreen();
+    } catch (error) {
+      setFallbackFullscreen(false);
+    }
+    return;
+  }
+
+  // iOS Safari / iOS 浏览器：使用原生视频全屏
+  if (typeof video.webkitEnterFullscreen === "function") {
+    try {
+      video.controls = true;
       video.webkitEnterFullscreen();
       return;
+    } catch (error) {
+      video.controls = false;
     }
-
-    if (document.fullscreenElement === videoStage) {
-      await document.exitFullscreen();
-      return;
-    }
-
-    if (videoStage.classList.contains("is-expanded")) {
-      videoStage.classList.remove("is-expanded");
-      document.body.classList.remove("video-expanded");
-      return;
-    }
-
-    if (videoStage.requestFullscreen) {
-      await videoStage.requestFullscreen();
-    } else if (video.requestFullscreen) {
-      await video.requestFullscreen();
-    } else {
-      // 不支持原生全屏时，使用页面内的全屏样式作为兼容方案
-      videoStage.classList.add("is-expanded");
-      document.body.classList.add("video-expanded");
-    }
-  } catch (error) {
-    // 原生全屏被浏览器拒绝时，退回页面内放大模式
-    videoStage.classList.add("is-expanded");
-    document.body.classList.add("video-expanded");
   }
+
+  // 支持标准 Fullscreen API 的浏览器
+  if (typeof videoStage.requestFullscreen === "function") {
+    try {
+      await videoStage.requestFullscreen();
+      return;
+    } catch (error) {
+      // 原生全屏失败时，继续使用页面内备用方案
+    }
+  }
+
+  setFallbackFullscreen(true);
 }
 
 fullscreenBtn.addEventListener("click", enterVideoFullscreen);
 
 function syncFullscreenButton() {
-  const expanded = document.fullscreenElement === videoStage ||
-    document.fullscreenElement === video ||
+  const expanded = Boolean(document.fullscreenElement) ||
     videoStage.classList.contains("is-expanded");
-  fullscreenBtn.textContent = expanded ? "⛶" : "⛶";
   fullscreenBtn.setAttribute("aria-label", expanded ? "退出全屏" : "全屏显示");
   fullscreenBtn.title = expanded ? "退出全屏" : "全屏显示";
 }
 
 document.addEventListener("fullscreenchange", syncFullscreenButton);
-video.addEventListener("webkitbeginfullscreen", syncFullscreenButton);
-video.addEventListener("webkitendfullscreen", syncFullscreenButton);
-
+video.addEventListener("webkitbeginfullscreen", () => {
+  video.controls = true;
+  syncFullscreenButton();
+});
+video.addEventListener("webkitendfullscreen", () => {
+  video.controls = false;
+  syncFullscreenButton();
+});
 
 $("musicControl").addEventListener("click", () => {
   if (music.paused) {
