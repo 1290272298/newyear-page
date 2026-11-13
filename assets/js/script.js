@@ -126,41 +126,34 @@ function setFallbackFullscreen(enabled) {
   fullscreenBtn.textContent = enabled ? "×" : "⛶";
 }
 
-function enterVideoFullscreen() {
-  // 再次点击时退出页面全屏
+async function enterVideoFullscreen() {
   if (videoStage.classList.contains("is-expanded")) {
     if (document.fullscreenElement && document.exitFullscreen) {
-      document.exitFullscreen().catch(() => {});
+      try { await document.exitFullscreen(); } catch (error) {}
     }
     setFallbackFullscreen(false);
+    if (screen.orientation && screen.orientation.unlock) {
+      try { screen.orientation.unlock(); } catch (error) {}
+    }
     return;
   }
 
-  // 先立即展开，确保原生全屏不支持时也能放大
+  // 先展开页面内播放器；iPhone Safari 使用此模式，避免原生播放器接管画面
   setFallbackFullscreen(true);
 
-  // iOS Safari 原生视频全屏
-  if (typeof video.webkitEnterFullscreen === "function") {
-    try {
-      video.controls = true;
-      video.webkitEnterFullscreen();
-      return;
-    } catch (error) {
-      video.controls = false;
-    }
-  }
-
-  // 其他支持 Fullscreen API 的浏览器
+  // 支持标准全屏的浏览器：进入全屏后尝试锁定横屏
   if (typeof videoStage.requestFullscreen === "function") {
     try {
-      const request = videoStage.requestFullscreen();
-      if (request && typeof request.catch === "function") {
-        request.catch(() => {
-          // 保留页面全屏备用模式
-        });
+      await videoStage.requestFullscreen();
+      if (screen.orientation && screen.orientation.lock) {
+        try {
+          await screen.orientation.lock("landscape");
+        } catch (error) {
+          // 浏览器不允许网页锁定方向时，由 CSS 横向布局兜底
+        }
       }
     } catch (error) {
-      // 保留页面全屏备用模式
+      // 保留页面内横屏备用模式
     }
   }
 }
