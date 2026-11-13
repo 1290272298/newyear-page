@@ -1,78 +1,87 @@
-# HPNY2027 — Birthday-page style New Year surprise
+# HPNY2027 — Birthday-style New Year Greeting
 
-这是按照 `1290272298/birthday-page` 的互动方式重新设计的 2027 新年祝福网页，不是 HPNY2026/HPNY2027 倒计时网站的翻版。
+这是基于生日网页的“打开礼物”体验制作的 2027 新年祝福网页。项目继续沿用现有结构，不重建页面。
 
-## 设计原则：保留生日网页的“打开礼物”体验
+## 当前体验流程
 
-1. 初始页：显示 2027 和「打开新年礼物」按钮。
-2. 打开礼物：进入祝福首页，启动背景音乐（浏览器允许时）。
-3. 播放视频：按顺序播放 4 个镜头；每个视频结束后自动进入下一个。
-4. 最终页：显示新年祝福，可重新观看或打开专属祝福弹窗。
-5. 音乐控制：全程可暂停/恢复；视频自身默认不强制静音，用户可单独控制视频声音。
+1. **倒计时入口**：显示距离日本当地时间 2027 年 1 月 1 日 00:00 的倒计时。
+2. **打开礼物**：点击按钮后进入祝福首页，并在用户操作后启动背景音乐。
+3. **四段祝福影片**：使用同一个播放器播放四个镜头。每段播放结束后停留，必须由用户点击“下一个镜头”继续，不会自动跳段，也不会循环播放。
+4. **最终祝福**：第四段播放完后，点击“查看最终祝福”进入结束页。
+5. **专属祝福弹窗**：可打开或关闭祝福弹窗，不主动改变背景音乐状态。
+6. **视频放大**：保留全屏放大和手机横向显示兼容处理。
 
-## 与 HPNY2027 不重复
+## 音乐规则
 
-- 不包含新年倒计时。
-- 不包含社区祝福墙 / LocalStorage 留言。
-- 不包含多语言切换系统。
-- 不包含 HPNY2027 的玻璃拟态倒计时首页。
-- 核心是生日网页式的礼物入口、点击触发、音乐、分镜视频、结尾祝福弹窗。
+- 打开礼物后启动背景音乐。
+- 第 1 段视频播放时，背景音乐继续播放。
+- 第 2～4 段视频播放时，背景音乐暂停。
+- 进入最终祝福页后恢复背景音乐。
+- 祝福弹窗的打开和关闭不改变音乐状态。
 
-## 文件结构
+## 目录结构
 
 ```text
-HPNY2027_BirthdayStyle/
+newyear-page/
 ├── index.html
 ├── README.md
+├── ASSET_SOURCES.md
 └── assets/
-    ├── css/
-    │   └── style.css
-    ├── js/
-    │   └── script.js
+    ├── css/style.css
+    ├── js/script.js
     ├── images/
-    │   ├── scene-01.jpg
-    │   ├── scene-02.jpg
-    │   ├── scene-03.jpg
-    │   └── scene-04.jpg
+    │   └── （放置 scene-01.jpg ～ scene-04.jpg）
     ├── videos/
     │   ├── scene-01-opening.mp4
     │   ├── scene-02-city.mp4
     │   ├── scene-03-wishes.mp4
     │   └── scene-04-finale.mp4
-    └── music/
-        └── new-year.mp3
+    └── music/new-year.mp3
 ```
 
-## 四个镜头建议
+## 视频素材替换
 
-| 镜头 | 内容 | 视频文件 |
+将下载并确认授权的 MP4 放进 `assets/videos/`，保持文件名不变即可替换对应镜头：
+
+| 文件名 | 镜头定位 | 建议画面 |
 |---|---|---|
-| 01 序幕 | 夜空由暗转亮，金色粒子汇聚，出现 2027 | `scene-01-opening.mp4` |
-| 02 城市跨年 | 城市夜景、灯光、跨年人群与烟花 | `scene-02-city.mp4` |
-| 03 新年祝福 | 烟花、香槟/金色光影/温暖画面，叠加祝福文案 | `scene-03-wishes.mp4` |
-| 04 结尾高潮 | 盛大烟花，HAPPY NEW YEAR 2027 | `scene-04-finale.mp4` |
+| `scene-01-opening.mp4` | 序幕 | 深色夜空、金色粒子、钟表/倒计时、光线渐亮 |
+| `scene-02-city.mp4` | 城市迎新 | 城市天际线、夜景、灯光、远景烟花 |
+| `scene-03-wishes.mp4` | 温暖祝福 | 朋友手持仙女棒、温暖灯光、香槟/金色光影 |
+| `scene-04-finale.mp4` | 最终高潮 | 大范围烟花、夜空绽放、适合叠加 HAPPY NEW YEAR 2027 |
 
-## 素材放置
+详细素材候选、授权注意事项与下载入口见 [ASSET_SOURCES.md](ASSET_SOURCES.md)。
 
-把下载的 MP4 放进 `assets/videos/`，并严格使用上表文件名。把对应 JPG 封面放入 `assets/images/`。背景音乐放入 `assets/music/new-year.mp3`。
+## 视频封面
 
-- Pixabay 视频搜索：https://pixabay.com/videos/search/newyear/
-- Vlipsy 搜索：https://vlipsy.com/search/happy-new-year
-- Unsplash 图片搜索：https://unsplash.com/ja/s/%E5%86%99%E7%9C%9F/happy-new-year
-- 音乐搜索入口：https://mp3.pm/search?q=new%20year
+代码引用了以下封面路径，请将对应 JPG 放进 `assets/images/`：
 
-注意：搜索页不是媒体文件直链。请打开具体素材页面下载文件，并逐项确认授权。MP3.pm 的搜索结果不等于获得音乐版权许可；公开部署请使用明确允许网页播放及公开传播的音乐。影视片段/网络剪辑也需单独确认授权。
+- `scene-01.jpg`
+- `scene-02.jpg`
+- `scene-03.jpg`
+- `scene-04.jpg`
+
+目前仓库的 `assets/images/` 目录尚未包含这四张封面。封面应与对应视频画面一致，建议 16:9、JPG、压缩后约 200–500 KB。
+
+## 修改文案与视频顺序
+
+打开 `assets/js/script.js`，修改顶部 `scenes` 数组中的：
+
+- `video`：视频文件路径
+- `poster`：封面图片路径
+- `eyebrow`：镜头编号/英文小标题
+- `title`：镜头主标题
+- `description`：镜头说明
+
+## 发布前检查
+
+- 确认四段视频及四张封面均已放入正确目录。
+- 每段视频使用 MP4 / H.264 编码，优先 1920×1080、16:9。
+- 尽量将单段视频控制在 5–20 MB，避免移动网络加载过慢。
+- 逐个保存素材来源页面、作者、下载日期和授权说明。
+- 不要直接使用影视剧、综艺、社交平台搬运视频或无法确认授权的音乐。
+- iPhone Safari 与电脑 Chrome 均需实际测试播放、暂停、放大、退出和最终页。
 
 ## 本地运行
 
-推荐 VS Code 安装 Live Server，然后右键 `index.html` → Open with Live Server。也可部署到 GitHub Pages。
-
-## 替换文字与顺序
-
-打开 `assets/js/script.js`，修改顶部 `scenes` 数组中的 `title`、`description`、`video`、`poster` 即可调整每个镜头。视频结束自动切换；也可以点「下一个镜头」。
-
-## 手机兼容
-
-- 视频使用 `playsinline`，避免 iPhone 强制全屏。
-- 音乐由用户点击「打开新年礼物」后启动，符合浏览器自动播放限制。
-- 建议 MP4 使用 H.264 编码，1080p，单段尽量压缩至 5–20 MB，并准备 JPG poster。
+推荐使用 VS Code 的 Live Server 打开 `index.html`，也可部署到 GitHub Pages。
